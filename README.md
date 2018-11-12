@@ -23,7 +23,7 @@ olarak ayırabiliriz.
 # Örneklere geçmeden önce ilk önce veritabanımızı ve tablolarımızı oluşturalım.
 create database SQLExercise
 
-create table Employees
+create table Employees</br>
 (
 	EmployeeId int identity(1,1),
 	Name nvarchar(50) not null,
