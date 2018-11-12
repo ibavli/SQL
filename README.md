@@ -77,8 +77,9 @@ insert Departments (DepartmanName) values ('Sales')
 
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ali','Veli','12345678912',4250,1) 
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hasan','Hseyin','12345678923',3500,1)    
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Faruk','12345678934',750,2)   
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',1700,2)
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Faruk','12345678934',1700,2)   
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',750,3)
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ayşe','Fatma','12345678956',750,3)
 
 # ALİASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.
@@ -136,3 +137,46 @@ Bu sorgu isimleri 'h' ile başlayanları listeler.
 
 select * from Employees where Name like '%r' 
 Bu sorgu isimleri 'r' ile bitenleri listeler.
+
+
+# Order by ve Concat kullanımı
+Order by bize tablolarımızı sıralamamızı sağlar. Concat ile birlikte kullanımı da aşağıdaki gibidir.
+select Concat(Name,' ',Surname) as [Adı ve SoyAdı]  from Employees  order by [Adı ve SoyAdı] desc
+
+# Distinct
+Distinct komutu farklı kayıtları elde etmemizi, yani tekrar eden kayıtları tekil olarak listelememizi sağlar.
+select Distinct DepartmentId from Employees 
+
+# Top
+Tablomuzdan kaç kayıt getirmek istiyorsak sorgumuza onu ekleriz.
+select top 2 * from Employees 
+
+# Önemli not (Top kullanımı ile ilgili)
+select top 2 * from Employees order by Salary asc 
+Bu yukarıdaki sorguyu çalıştırdığımızda en düşük maaşlı iki kişi geldi. Fakat komutu şöyle yaparsak,
+select top 1 * from Employees order by Salary asc => bu komut ile ekrana bir kişi geldi. Fakat maaşı bu maaşa eşit olan biri daha var. İşte bu gibi durumlar için, with ties kullanırız.
+select top 1 with ties * from Employees order by Salary asc
+
+# AGGREGATE FUNCTİONS
+Aggregate functionlar select ifadesiyle kullanılan geriye tek hücre olarak sonuç dönen fonksiyonlardır.
+
+select COUNT(*) from Employees -- bütün satırları sayar.
+select COUNT(EmployeeId) from Employees -- EmployeeId alanına göre null olmayan satırları sayar
+select SUM(Salary) from Employees -- maaş verilerini toplar
+select AVG(Salary) from Employees -- maaş verilerinin ortalamasını verir 
+select Min(Salary) from Employees -- maaş verilerinden minimum olanını verir
+select MAX(Salary) from Employees -- maaş verilerinin maximum olanını verir 
+
+
+#  CASE WHEN
+Case When ifadesi select içerisinde koşullu ifadeler için kullanılır. Örneğimizde DepartmentId alanı 1 olanlar için Software, 2 olanlar için Accounting, 3 olanlar için Sales yazmasını istiyoruz.
+select
+	Name,
+	Surname,
+	DepartmentId,
+		case DepartmentId
+			when 1 then 'Software'
+			when 2 then 'Accounting'
+			when 3 then 'Sales'
+		end as [Departmanlar] from Employees 
+		
