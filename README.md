@@ -8,19 +8,19 @@ Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (
 
 
 ## CONSTRAİNTS
-Constraint tablolardaki alanlara girilen verilerin kontrollerini yapan ve kısıtlamalar getiren tekniklerin bütünüdür. Constraint ile amaçlanan tamamen veri bütünlüğünü, doğrulamasını ve tutarlılığını sağlamaktır.
+Constraint tablolardaki alanlara girilen verilerin kontrollerini yapan ve kısıtlamalar getiren tekniklerin bütünüdür. Constraint ile amaçlanan tamamen veri bütünlüğünü, doğrulamasını ve tutarlılığını sağlamaktır.</br>
 Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.
 
 
-# TRANSACT SQL (T-SQL)
+## TRANSACT SQL (T-SQL)
 T-sql, sql dilinin sql servera uyarlanmış halidir. T-sql Sql'i referans almış ve daha gelişmiş bir dildir. T-sql Microsoft Sql Server ile kullanılan bir sorgu dilidir. T-sql dilini genellikle 3 başlık altında inceleriz. Bunları;
 1. Data Definition Language (DDL) = (create, alter, drop)
 2. Data Manipulation Language (DML) = (select, insert, update, delete)
-3. Data Control Language (DCL) = (grant, deny, revoke) 
+3. Data Control Language (DCL) = (grant, deny, revoke) </br>
 olarak ayırabiliriz.
 
 
-# Örneklere geçmeden önce ilk önce veritabanımızı ve tablolarımızı oluşturalım.
+### Örneklere geçmeden önce ilk önce veritabanımızı ve tablolarımızı oluşturalım.
 create database SQLExercise
 
 create table Employees</br>
@@ -33,13 +33,13 @@ create table Employees</br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int not null</br>
 )
 
-create table Departments
-(
-	DepartmentId int identity(1,1),
-	DepartmanName nvarchar(50) not null
-) 
+create table Departments</br>
+(</br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int identity(1,1),</br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmanName nvarchar(50) not null</br>
+)
 
-# UNİQUE CONSTRAİNTS
+## UNİQUE CONSTRAİNTS
 Bir tabloda primary key kullanarak sadece bir tane benzersiz alan elde edebilirsiniz. Primary key tanımlamamızdaki amaç alanı benzersiz yapmak değil bütün alanların o alana bağımlı olmasını sağlamaktır. Unique Key ise alanı sadece benzersiz yapmak için kullanılır. Unique Key Primary Key'in aksine birden fazla olabilir. 
 Aşağıdaki kod ile TcNo alanını unique key olarak tanımlıyoruz. 
 
