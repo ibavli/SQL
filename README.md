@@ -1,4 +1,4 @@
-# SQL'DE DOSYA TİPLERİ
+## SQL'DE DOSYA TİPLERİ
 SQL'de dosya tipleri ikiye ayrılır. 
 1. MDF (Meta Data File)
 2. LDF (Log Data File)
@@ -7,7 +7,7 @@ Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (
  
 
 
-# CONSTRAİNTS
+## CONSTRAİNTS
 Constraint tablolardaki alanlara girilen verilerin kontrollerini yapan ve kısıtlamalar getiren tekniklerin bütünüdür. Constraint ile amaçlanan tamamen veri bütünlüğünü, doğrulamasını ve tutarlılığını sağlamaktır.
 Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.
 
