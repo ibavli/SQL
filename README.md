@@ -80,3 +80,59 @@ insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hasan','Hs
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Faruk','12345678934',750,2)   
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',1700,2)
 
+# ALİASES (TAKMA AD)
+Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.
+
+select  Name, Surname as [Soy Adı] from Employees
+
+Bu sorguyu çalıştırdığımızda result penceresinde Surname sütunu Soy Adı olarak gelir.
+
+# Concat kullanımı
+select Concat(Name,' - ',Surname) as [Adı ve SoyAdı] from Employees
+Concat komutu iki ifadeyi birleştirmek için kullanılır. Bu değişiklik sadece result penceresinde olur. Bu kodu çalıştırınca result penceresinde tek sütunlu bir sonuç geldi. Sütunun adı [Adı ve soyadı] içerisindeki değerler ise isim-soyisim şeklinde.
+
+
+# Where komutu operatörleri
+1) Karşılaştırma Operatörleri
+	* Eşittir ( = )
+	* Büyüktür ( > )
+	* Küçüktür ( < )
+	* Büyük eşit ( >= )
+	* Küçük eşit ( <= )
+	* Eşit değil ( != veya <> )
+	
+2) Mantıksal Operatörler
+	* And
+	* Or
+
+3) Diğer Operatörler
+	* Between
+	* In
+	* Like
+
+# In Operatörü
+In operatörü where komutu ile kullanılır. Birden fazla eşitlik durumu yazmak yerine tercih edilir.
+
+select * from Employees where Name in ('ali','hasan') 
+
+Bu sorgu ile isimleri ali ve hasan olanları listeledik.
+
+
+# Not In Operatörü
+In operatörünün tam tersidir. İçinde eşit olmayanları listeler.
+
+select * from Employees where Name not in ('ali','hasan') 
+
+Bu sorgu ile isimleri ali ve hasan olmayanları listeledik.
+
+# Like Operatörü
+Filtreleme yaparak aramak için kullanırız.
+
+select * from Employees where Name like '%ha%'  
+Bu sorgu isimlerinin içerisinde 'ha' geçenleri arar.
+
+select * from Employees where Name like 'h%' 
+Bu sorgu isimleri 'h' ile başlayanları listeler.
+
+select * from Employees where Name like '%r' 
+Bu sorgu isimleri 'r' ile bitenleri listeler.
