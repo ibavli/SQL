@@ -30,13 +30,13 @@ create table Employees
 	Surname nvarchar(50) not null,
 	TcNo nvarchar(11) not null,
 	Salary money not null,
-	DepartmanId int not null
+	DepartmentId int not null
 )
 
 create table Departments
 (
-	DepartmanId int identity(1,1),
-	DepartmanAdi nvarchar(50) not null
+	DepartmentId int identity(1,1),
+	DepartmanName nvarchar(50) not null
 ) 
 
 # UNİQUE CONSTRAİNTS
@@ -52,5 +52,31 @@ Sql'de ikincil anahtarları, ilişkisel tablolar içerisindeki alanlar için ver
 
 alter table Employees
    add constraint forkeyDepartmentId
-   foreign key(DepartmanId) references Departments(DepartmanId)
+   foreign key(DepartmentId) references Departments(DepartmentId)
+
+
+# CHECK CONSTRAİNTS
+Check Constraint, tablonun ilgili sütununa veri girerken veriyi bizim belirlediğimiz şekilde kontrol eder. Tc kimlikler 11 haneden oluşur. Bunu sql'de ayarlamak ise şöyledir;
+
+alter table Employees
+add constraint tcNoCheck check(Len(TcNo) = 11) 
+
+# DEFAULT CONSTRAİNTS
+Default constraint, adından da anlaşılacağı üzere bir sütuna değer girilmediğinde o sütun için default bir değer ataması gerçekleştirir. Örneğin Employees tablosuna SalaryDay sütunu ekleyelim ve default değer atayalım.
+
+alter table Employees
+add SalaryDay date,
+constraint defaultValue default(getdate()) for SalaryDay
+
+# Tabloya veri ekleme (INSERT)
+İlk önce Departments daha sonra Employees tablolalarımza veri ekleyelim.
+
+insert Departments (DepartmanName) values ('Software') 
+insert Departments (DepartmanName) values ('Accounting') 
+insert Departments (DepartmanName) values ('Sales')
+
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ali','Veli','12345678912',4250,1) 
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hasan','Hseyin','12345678923',3500,1)    
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Faruk','12345678934',750,2)   
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',1700,2)
 
