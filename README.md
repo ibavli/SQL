@@ -24,13 +24,13 @@ olarak ayırabiliriz.
 create database SQLExercise
 
 create table Employees</br>
-(
-	EmployeeId int identity(1,1),
-	Name nvarchar(50) not null,
-	Surname nvarchar(50) not null,
-	TcNo nvarchar(11) not null,
-	Salary money not null,
-	DepartmentId int not null
+(<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId int identity(1,1),
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name nvarchar(50) not null,
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surname nvarchar(50) not null,
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcNo nvarchar(11) not null,
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salary money not null,
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int not null</br>
 )
 
 create table Departments
