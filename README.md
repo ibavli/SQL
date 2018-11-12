@@ -170,6 +170,7 @@ select MAX(Salary) from Employees -- maaş verilerinin maximum olanını verir
 
 #  CASE WHEN
 Case When ifadesi select içerisinde koşullu ifadeler için kullanılır. Örneğimizde DepartmentId alanı 1 olanlar için Software, 2 olanlar için Accounting, 3 olanlar için Sales yazmasını istiyoruz.
+
 select
 	Name,
 	Surname,
