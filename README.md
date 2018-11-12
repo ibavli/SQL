@@ -25,11 +25,11 @@ create database SQLExercise
 
 create table Employees</br>
 (<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId int identity(1,1),
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name nvarchar(50) not null,
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surname nvarchar(50) not null,
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcNo nvarchar(11) not null,
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salary money not null,
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId int identity(1,1),</br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name nvarchar(50) not null,</br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surname nvarchar(50) not null,</br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcNo nvarchar(11) not null,</br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salary money not null,</br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int not null</br>
 )
 
