@@ -7,7 +7,7 @@ Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (
  
 
 
-## CONSTRAİNTS
+## CONSTRAINTS
 Constraint tablolardaki alanlara girilen verilerin kontrollerini yapan ve kısıtlamalar getiren tekniklerin bütünüdür. Constraint ile amaçlanan tamamen veri bütünlüğünü, doğrulamasını ve tutarlılığını sağlamaktır.</br>
 Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.
 
