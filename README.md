@@ -172,12 +172,12 @@ select MAX(Salary) from Employees -- maaş verilerinin maximum olanını verir <
 Case When ifadesi select içerisinde koşullu ifadeler için kullanılır. Örneğimizde DepartmentId alanı 1 olanlar için Software, 2 olanlar için Accounting, 3 olanlar için Sales yazmasını istiyoruz.</br></br>
 
 select</br>
-&nbsp;&nbsp;	Name,</br>
-&nbsp;&nbsp;	Surname,</br>
-&nbsp;&nbsp;	DepartmentId,</br>
-&nbsp;&nbsp;&nbsp;	case DepartmentId</br>
-&nbsp;&nbsp;&nbsp;&nbsp;	when 1 then 'Software'</br>
-&nbsp;&nbsp;&nbsp;&nbsp;	when 2 then 'Accounting'</br>
-&nbsp;&nbsp;&nbsp;&nbsp;		when 3 then 'Sales'</br>
-&nbsp;&nbsp;&nbsp;	end as [Departmanlar] from Employees </br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Name,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Surname,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;	DepartmentId,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	case DepartmentId</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 1 then 'Software'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 2 then 'Accounting'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		when 3 then 'Sales'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end as [Departmanlar] from Employees </br>
 		
