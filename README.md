@@ -175,9 +175,9 @@ select</br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Name,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Surname,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;	DepartmentId,</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	case DepartmentId</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 1 then 'Software'</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 2 then 'Accounting'</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		when 3 then 'Sales'</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end as [Departmanlar] from Employees </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	case DepartmentId</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 1 then 'Software'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 2 then 'Accounting'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 3 then 'Sales'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end as [Departmanlar] from Employees </br>
 		
