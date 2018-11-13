@@ -46,7 +46,7 @@ Aşağıdaki kod ile TcNo alanını unique key olarak tanımlıyoruz.
 alter table Employees add constraint uniqueTc unique (TcNo) 
 
 
-# FOREİGN KEY CONSTRAİNT
+## FOREİGN KEY CONSTRAİNT
 Sql'de ikincil anahtarları, ilişkisel tablolar içerisindeki alanlar için veri tutarlılığını ve bağımlılığını sağlamak amaçlı kullanırız. Foreign key olarak tanımlayacağımız alan için kesinlikle referans alacağı bir alan ve tablo belirtmek zorundayız.</br>
 Aşağıdaki komut ile Employees ve Departments tablolarıyla DepartmentId'ler üzerinden bir ilişki kuruyoruz.
 
@@ -55,40 +55,40 @@ alter table Employees
    foreign key(DepartmentId) references Departments(DepartmentId)
 
 
-# CHECK CONSTRAİNTS
+## CHECK CONSTRAİNTS
 Check Constraint, tablonun ilgili sütununa veri girerken veriyi bizim belirlediğimiz şekilde kontrol eder. Tc kimlikler 11 haneden oluşur. Bunu sql'de ayarlamak ise şöyledir;
 
 alter table Employees
 add constraint tcNoCheck check(Len(TcNo) = 11) 
 
-# DEFAULT CONSTRAİNTS
+## DEFAULT CONSTRAİNTS
 Default constraint, adından da anlaşılacağı üzere bir sütuna değer girilmediğinde o sütun için default bir değer ataması gerçekleştirir. Örneğin Employees tablosuna SalaryDay sütunu ekleyelim ve default değer atayalım.
 
 alter table Employees
 add SalaryDay date,
 constraint defaultValue default(getdate()) for SalaryDay
 
-# Tabloya veri ekleme (INSERT)
-İlk önce Departments daha sonra Employees tablolalarımza veri ekleyelim.
+## Tabloya veri ekleme (INSERT)
+İlk önce Departments daha sonra Employees tablolalarımza veri ekleyelim.</br></br>
 
-insert Departments (DepartmanName) values ('Software') 
-insert Departments (DepartmanName) values ('Accounting') 
-insert Departments (DepartmanName) values ('Sales')
+insert Departments (DepartmanName) values ('Software') </br>
+insert Departments (DepartmanName) values ('Accounting') </br>
+insert Departments (DepartmanName) values ('Sales')</br>
 
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ali','Veli','12345678912',4250,1) 
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hasan','Hseyin','12345678923',3500,1)    
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Faruk','12345678934',1700,2)   
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',750,3)
-insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ayşe','Fatma','12345678956',750,3)
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ali','Veli','12345678912',4250,1) </br>
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hasan','Hseyin','12345678923',3500,1)  </br>  
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Faruk','12345678934',1700,2)   </br>
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',750,3)</br>
+insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ayşe','Fatma','12345678956',750,3)</br>
 
-# ALİASES (TAKMA AD)
-Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.
+## ALİASES (TAKMA AD)
+Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
 
-select  Name, Surname as [Soy Adı] from Employees
+select  Name, Surname as [Soy Adı] from Employees </br>
 
 Bu sorguyu çalıştırdığımızda result penceresinde Surname sütunu Soy Adı olarak gelir.
 
-# Concat kullanımı
+## Concat kullanımı
 select Concat(Name,' - ',Surname) as [Adı ve SoyAdı] from Employees
 Concat komutu iki ifadeyi birleştirmek için kullanılır. Bu değişiklik sadece result penceresinde olur. Bu kodu çalıştırınca result penceresinde tek sütunlu bir sonuç geldi. Sütunun adı [Adı ve soyadı] içerisindeki değerler ise isim-soyisim şeklinde.
 
