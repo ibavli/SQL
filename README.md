@@ -40,7 +40,7 @@ create table Departments</br>
 )
 
 ## UNİQUE CONSTRAİNTS
-Bir tabloda primary key kullanarak sadece bir tane benzersiz alan elde edebilirsiniz. Primary key tanımlamamızdaki amaç alanı benzersiz yapmak değil bütün alanların o alana bağımlı olmasını sağlamaktır. Unique Key ise alanı sadece benzersiz yapmak için kullanılır. Unique Key Primary Key'in aksine birden fazla olabilir.</br> 
+Bir tabloda primary key kullanarak sadece bir tane benzersiz alan elde edebilirsiniz. Primary key tanımlamamızdaki amaç alanı benzersiz yapmak değil bütün alanların o alana bağımlı olmasını sağlamaktır. Unique Key ise alanı sadece benzersiz yapmak için kullanılır. Unique Key Primary Key'in aksine birden fazla olabilir. Tablo tasarımını yaparken bir alanın UNIQUE olup olmayacağına iyi karar vermemiz gerekir. Çünkü daha sonradan ALTER komutu ile alanın özelliklerini değiştirirken, ilgili alanda tekrarlayan kayıtlar varsa UNIQUE değerini veremeyiz. </br> 
 Aşağıdaki kod ile TcNo alanını unique key olarak tanımlıyoruz. 
 
 alter table Employees add constraint uniqueTc unique (TcNo) 
