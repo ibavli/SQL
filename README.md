@@ -89,11 +89,11 @@ select  Name, Surname as [Soy Adı] from Employees </br>
 Bu sorguyu çalıştırdığımızda result penceresinde Surname sütunu Soy Adı olarak gelir.
 
 ## Concat kullanımı
-select Concat(Name,' - ',Surname) as [Adı ve SoyAdı] from Employees
+select Concat(Name,' - ',Surname) as [Adı ve SoyAdı] from Employees </br>
 Concat komutu iki ifadeyi birleştirmek için kullanılır. Bu değişiklik sadece result penceresinde olur. Bu kodu çalıştırınca result penceresinde tek sütunlu bir sonuç geldi. Sütunun adı [Adı ve soyadı] içerisindeki değerler ise isim-soyisim şeklinde.
 
 
-# Where komutu operatörleri
+## Where komutu operatörleri
 1) Karşılaştırma Operatörleri
 	* Eşittir ( = )
 	* Büyüktür ( > )
@@ -111,73 +111,73 @@ Concat komutu iki ifadeyi birleştirmek için kullanılır. Bu değişiklik sade
 	* In
 	* Like
 
-# In Operatörü
-In operatörü where komutu ile kullanılır. Birden fazla eşitlik durumu yazmak yerine tercih edilir.
+## In Operatörü
+In operatörü where komutu ile kullanılır. Birden fazla eşitlik durumu yazmak yerine tercih edilir.</br>
 
-select * from Employees where Name in ('ali','hasan') 
+select * from Employees where Name in ('ali','hasan') </br>
 
 Bu sorgu ile isimleri ali ve hasan olanları listeledik.
 
 
-# Not In Operatörü
-In operatörünün tam tersidir. İçinde eşit olmayanları listeler.
+## Not In Operatörü
+In operatörünün tam tersidir. İçinde eşit olmayanları listeler.</br>
 
-select * from Employees where Name not in ('ali','hasan') 
+select * from Employees where Name not in ('ali','hasan') </br>
 
 Bu sorgu ile isimleri ali ve hasan olmayanları listeledik.
 
-# Like Operatörü
-Filtreleme yaparak aramak için kullanırız.
+## Like Operatörü
+Filtreleme yaparak aramak için kullanırız.</br>
 
-select * from Employees where Name like '%ha%'  
-Bu sorgu isimlerinin içerisinde 'ha' geçenleri arar.
+select * from Employees where Name like '%ha%'    </br>
+Bu sorgu isimlerinin içerisinde 'ha' geçenleri arar.</br></br>
 
-select * from Employees where Name like 'h%' 
-Bu sorgu isimleri 'h' ile başlayanları listeler.
+select * from Employees where Name like 'h%' </br>
+Bu sorgu isimleri 'h' ile başlayanları listeler.</br></br>
 
-select * from Employees where Name like '%r' 
-Bu sorgu isimleri 'r' ile bitenleri listeler.
+select * from Employees where Name like '%r' </br>
+Bu sorgu isimleri 'r' ile bitenleri listeler.</br>
 
 
-# Order by ve Concat kullanımı
-Order by bize tablolarımızı sıralamamızı sağlar. Concat ile birlikte kullanımı da aşağıdaki gibidir.
+## Order by ve Concat kullanımı
+Order by bize tablolarımızı sıralamamızı sağlar. Concat ile birlikte kullanımı da aşağıdaki gibidir.</br>
 select Concat(Name,' ',Surname) as [Adı ve SoyAdı]  from Employees  order by [Adı ve SoyAdı] desc
 
-# Distinct
-Distinct komutu farklı kayıtları elde etmemizi, yani tekrar eden kayıtları tekil olarak listelememizi sağlar.
+## Distinct
+Distinct komutu farklı kayıtları elde etmemizi, yani tekrar eden kayıtları tekil olarak listelememizi sağlar.</br>
 select Distinct DepartmentId from Employees 
 
-# Top
-Tablomuzdan kaç kayıt getirmek istiyorsak sorgumuza onu ekleriz.
+## Top
+Tablomuzdan kaç kayıt getirmek istiyorsak sorgumuza onu ekleriz.</br>
 select top 2 * from Employees 
 
-# Önemli not (Top kullanımı ile ilgili)
-select top 2 * from Employees order by Salary asc 
-Bu yukarıdaki sorguyu çalıştırdığımızda en düşük maaşlı iki kişi geldi. Fakat komutu şöyle yaparsak,
-select top 1 * from Employees order by Salary asc => bu komut ile ekrana bir kişi geldi. Fakat maaşı bu maaşa eşit olan biri daha var. İşte bu gibi durumlar için, with ties kullanırız.
+## Önemli not (Top kullanımı ile ilgili)
+select top 2 * from Employees order by Salary asc </br>
+Bu yukarıdaki sorguyu çalıştırdığımızda en düşük maaşlı iki kişi geldi. Fakat komutu şöyle yaparsak,</br>
+select top 1 * from Employees order by Salary asc => bu komut ile ekrana bir kişi geldi. Fakat maaşı bu maaşa eşit olan biri daha var. İşte bu gibi durumlar için, with ties kullanırız.</br>
 select top 1 with ties * from Employees order by Salary asc
 
-# AGGREGATE FUNCTİONS
-Aggregate functionlar select ifadesiyle kullanılan geriye tek hücre olarak sonuç dönen fonksiyonlardır.
+## AGGREGATE FUNCTİONS
+Aggregate functionlar select ifadesiyle kullanılan geriye tek hücre olarak sonuç dönen fonksiyonlardır.</br>
 
-select COUNT(*) from Employees -- bütün satırları sayar.
-select COUNT(EmployeeId) from Employees -- EmployeeId alanına göre null olmayan satırları sayar
-select SUM(Salary) from Employees -- maaş verilerini toplar
-select AVG(Salary) from Employees -- maaş verilerinin ortalamasını verir 
-select Min(Salary) from Employees -- maaş verilerinden minimum olanını verir
-select MAX(Salary) from Employees -- maaş verilerinin maximum olanını verir 
+select COUNT(*) from Employees -- bütün satırları sayar.</br>
+select COUNT(EmployeeId) from Employees -- EmployeeId alanına göre null olmayan satırları sayar</br>
+select SUM(Salary) from Employees -- maaş verilerini toplar</br>
+select AVG(Salary) from Employees -- maaş verilerinin ortalamasını verir </br>
+select Min(Salary) from Employees -- maaş verilerinden minimum olanını verir</br>
+select MAX(Salary) from Employees -- maaş verilerinin maximum olanını verir </br>
 
 
-#  CASE WHEN
-Case When ifadesi select içerisinde koşullu ifadeler için kullanılır. Örneğimizde DepartmentId alanı 1 olanlar için Software, 2 olanlar için Accounting, 3 olanlar için Sales yazmasını istiyoruz.
+##  CASE WHEN
+Case When ifadesi select içerisinde koşullu ifadeler için kullanılır. Örneğimizde DepartmentId alanı 1 olanlar için Software, 2 olanlar için Accounting, 3 olanlar için Sales yazmasını istiyoruz.</br></br>
 
-select
-	Name,
-	Surname,
-	DepartmentId,
-		case DepartmentId
-			when 1 then 'Software'
-			when 2 then 'Accounting'
-			when 3 then 'Sales'
-		end as [Departmanlar] from Employees 
+select</br>
+&nbsp;&nbsp;	Name,</br>
+&nbsp;&nbsp;	Surname,</br>
+&nbsp;&nbsp;	DepartmentId,</br>
+&nbsp;&nbsp;&nbsp;	case DepartmentId</br>
+&nbsp;&nbsp;&nbsp;&nbsp;	when 1 then 'Software'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;	when 2 then 'Accounting'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;		when 3 then 'Sales'</br>
+&nbsp;&nbsp;&nbsp;	end as [Departmanlar] from Employees </br>
 		
