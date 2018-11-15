@@ -131,7 +131,7 @@ Concat komutu iki ifadeyi birleştirmek için kullanılır. Bu değişiklik sade
 	* In
 	* Like
 
-## In Operatörü
+## IN Operatörü
 In operatörü where komutu ile kullanılır. Birden fazla eşitlik durumu yazmak yerine tercih edilir.</br>
 
 select * from Employees where Name in ('ali','hasan') </br>
@@ -139,7 +139,7 @@ select * from Employees where Name in ('ali','hasan') </br>
 Bu sorgu ile isimleri ali ve hasan olanları listeledik.
 
 
-## Not In Operatörü
+## NOT IN Operatörü
 In operatörünün tam tersidir. İçinde eşit olmayanları listeler.</br>
 
 select * from Employees where Name not in ('ali','hasan') </br>
@@ -175,9 +175,9 @@ Tablomuzdan kaç kayıt getirmek istiyorsak sorgumuza onu ekleriz.</br>
 select top 2 * from Employees 
 
 ## Önemli not (Top kullanımı ile ilgili)
-select top 2 * from Employees order by Salary asc </br>
-Bu yukarıdaki sorguyu çalıştırdığımızda en düşük maaşlı iki kişi geldi. Fakat komutu şöyle yaparsak,</br>
-select top 1 * from Employees order by Salary asc => bu komut ile ekrana bir kişi geldi. Fakat maaşı bu maaşa eşit olan biri daha var. İşte bu gibi durumlar için, with ties kullanırız.</br>
+select top 2 * from Employees order by Salary asc </br></br>
+Bu yukarıdaki sorguyu çalıştırdığımızda en düşük maaşlı iki kişi geldi. Fakat komutu şöyle yaparsak,</br></br>
+select top 1 * from Employees order by Salary asc => bu komut ile ekrana bir kişi geldi. Fakat maaşı bu maaşa eşit olan biri daha var. İşte bu gibi durumlar için, with ties kullanırız.</br></br>
 select top 1 with ties * from Employees order by Salary asc
 
 ## AGGREGATE FUNCTIONS
