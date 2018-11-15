@@ -95,7 +95,18 @@ Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak deği�
 
 select  Name, Surname as [Soy Adı] from Employees </br>
 
-Bu sorguyu çalıştırdığımızda result penceresinde Surname sütunu Soy Adı olarak gelir.
+Bu sorguyu çalıştırdığımızda result penceresinde Surname sütunu Soy Adı olarak gelir.<br>
+Şimdi de iki tablomuzun isimlerini as komutu ile değiştirerek (sadece sorgu sürecinde) iki tablodan da bir kaç alanı yine as komutları ile değiştirerek result penceresine getirelim.
+
+select calisanlar.EmployeeId,</br>
+calisanlar.Name AS isim,</br> 
+calisanlar.Surname as soyisim,</br>
+meslekler.DepartmanName as meslek</br>
+from Employees as calisanlar, Departments AS meslekler</br>
+where calisanlar.DepartmentId = meslekler.DepartmanId</br>
+</br>
+Bu yukarıdaki kod ile result penceresinde EmployeeId, isim, soyisim, meslek alanları ile sonuçlar geldi.
+
 
 ## Concat kullanımı
 select Concat(Name,' - ',Surname) as [Adı ve SoyAdı] from Employees </br>
