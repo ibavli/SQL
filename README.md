@@ -146,7 +146,7 @@ select * from Employees where Name not in ('ali','hasan') </br>
 
 Bu sorgu ile isimleri ali ve hasan olmayanları listeledik.
 
-## Like Operatörü
+## Like ve Not Like Operatörü
 Filtreleme yaparak aramak için kullanırız.</br>
 
 select * from Employees where Name like '%ha%'    </br>
@@ -158,6 +158,7 @@ Bu sorgu isimleri 'h' ile başlayanları listeler.</br></br>
 select * from Employees where Name like '%r' </br>
 Bu sorgu isimleri 'r' ile bitenleri listeler.</br>
 
+NOT : Bu yukarıdaki kodları not like şeklinde yazarsanız tam tersi işlemleri yapacaktır.
 
 ## Order by ve Concat kullanımı
 Order by bize tablolarımızı sıralamamızı sağlar. Concat ile birlikte kullanımı da aşağıdaki gibidir.</br>
