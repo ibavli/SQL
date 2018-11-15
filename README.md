@@ -1,7 +1,7 @@
 ## SQL'DE DOSYA TİPLERİ
 SQL'de dosya tipleri ikiye ayrılır. 
-**1. MDF (Meta Data File)
-2. LDF (Log Data File)**
+1. MDF (Meta Data File)
+2. LDF (Log Data File)
 Mdf : Veritabanına girilmiş olan verilerin aslını tutar. Yani veritabanına eklediğimiz bilgilerin kendisi tutar. 
 Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (Şu kullanıcı şu ip’den giriş yaptı, şu bilgiyi güncelledi gibi bilgiler yer alır) 
  
@@ -9,14 +9,14 @@ Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (
 
 ## CONSTRAINTS
 Constraint tablolardaki alanlara girilen verilerin kontrollerini yapan ve kısıtlamalar getiren tekniklerin bütünüdür. Constraint ile amaçlanan tamamen veri bütünlüğünü, doğrulamasını ve tutarlılığını sağlamaktır.</br>
-**Not Null, Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.**
+Not Null, Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.**
 
 
 ## TRANSACT SQL (T-SQL)
 T-sql, sql dilinin sql servera uyarlanmış halidir. T-sql Sql'i referans almış ve daha gelişmiş bir dildir. T-sql Microsoft Sql Server ile kullanılan bir sorgu dilidir. T-sql dilini genellikle 3 başlık altında inceleriz. Bunları;
-**1. Data Definition Language (DDL) **= (create, alter, drop)
-**2. Data Manipulation Language (DML)** = (select, insert, update, delete)
-**3. Data Control Language (DCL)** = (grant, deny, revoke) </br>
+1. Data Definition Language (DDL) = (create, alter, drop)
+2. Data Manipulation Language (DML) = (select, insert, update, delete)
+3. Data Control Language (DCL)** = (grant, deny, revoke) </br>
 olarak ayırabiliriz.
 
 
