@@ -39,14 +39,14 @@ create table Departments</br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmanName nvarchar(50) not null</br>
 )
 
-## UNİQUE CONSTRAİNTS
+## UNIQUE CONSTRAINTS
 Bir tabloda primary key kullanarak sadece bir tane benzersiz alan elde edebilirsiniz. Primary key tanımlamamızdaki amaç alanı benzersiz yapmak değil bütün alanların o alana bağımlı olmasını sağlamaktır. Unique Key ise alanı sadece benzersiz yapmak için kullanılır. Unique Key Primary Key'in aksine birden fazla olabilir. Tablo tasarımını yaparken bir alanın UNIQUE olup olmayacağına iyi karar vermemiz gerekir. Çünkü daha sonradan ALTER komutu ile alanın özelliklerini değiştirirken, ilgili alanda tekrarlayan kayıtlar varsa UNIQUE değerini veremeyiz. </br> 
 Aşağıdaki kod ile TcNo alanını unique key olarak tanımlıyoruz. 
 
 alter table Employees add constraint uniqueTc unique (TcNo) 
 
 
-## FOREİGN KEY CONSTRAİNT
+## FOREIGN KEY CONSTRAINT
 Sql'de ikincil anahtarları, ilişkisel tablolar içerisindeki alanlar için veri tutarlılığını ve bağımlılığını sağlamak amaçlı kullanırız. Foreign key olarak tanımlayacağımız alan için kesinlikle referans alacağı bir alan ve tablo belirtmek zorundayız.</br>
 Aşağıdaki komut ile Employees ve Departments tablolarıyla DepartmentId'ler üzerinden bir ilişki kuruyoruz.
 
@@ -55,13 +55,13 @@ alter table Employees
    foreign key(DepartmentId) references Departments(DepartmentId)
 
 
-## CHECK CONSTRAİNTS
+## CHECK CONSTRAINTS
 Check Constraint, tablonun ilgili sütununa veri girerken veriyi bizim belirlediğimiz şekilde kontrol eder. Tc kimlikler 11 haneden oluşur. Bunu sql'de ayarlamak ise şöyledir;
 
 alter table Employees
 add constraint tcNoCheck check(Len(TcNo) = 11) 
 
-## DEFAULT CONSTRAİNTS
+## DEFAULT CONSTRAINTS
 Default constraint, adından da anlaşılacağı üzere bir sütuna değer girilmediğinde o sütun için default bir değer ataması gerçekleştirir. Örneğin Employees tablosuna SalaryDay sütunu ekleyelim ve default değer atayalım.
 
 alter table Employees
@@ -90,7 +90,7 @@ From Employees</br>
 </br>
 Bu işlem ile, tablomuzdaki bütün kayıtları direkt kopyaladık.</br></br>
 
-## ALİASES (TAKMA AD)
+## ALIASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
 
 select  Name, Surname as [Soy Adı] from Employees </br>
@@ -108,12 +108,12 @@ where calisanlar.DepartmentId = meslekler.DepartmanId</br>
 Bu yukarıdaki kod ile result penceresinde EmployeeId, isim, soyisim, meslek alanları ile sonuçlar geldi.
 
 
-## Concat kullanımı
+## CONCAT
 select Concat(Name,' - ',Surname) as [Adı ve SoyAdı] from Employees </br>
 Concat komutu iki ifadeyi birleştirmek için kullanılır. Bu değişiklik sadece result penceresinde olur. Bu kodu çalıştırınca result penceresinde tek sütunlu bir sonuç geldi. Sütunun adı [Adı ve soyadı] içerisindeki değerler ise isim-soyisim şeklinde.
 
 
-## Where komutu operatörleri
+## WHERE komutu operatörleri
 1) Karşılaştırma Operatörleri
 	* Eşittir ( = )
 	* Büyüktür ( > )
@@ -146,7 +146,7 @@ select * from Employees where Name not in ('ali','hasan') </br>
 
 Bu sorgu ile isimleri ali ve hasan olmayanları listeledik.
 
-## Like ve Not Like Operatörü
+## LIKE ve NOT LIKE Operatörü
 Filtreleme yaparak aramak için kullanırız.</br>
 
 select * from Employees where Name like '%ha%'    </br>
@@ -160,17 +160,17 @@ Bu sorgu isimleri 'r' ile bitenleri listeler.</br>
 
 NOT : Bu yukarıdaki kodları not like şeklinde yazarsanız tam tersi işlemleri yapacaktır.
 
-## Order by ve Concat kullanımı
+## ORDER BY ve CONCAT kullanımı
 Order by bize tablolarımızı sıralamamızı sağlar. Concat ile birlikte kullanımı da aşağıdaki gibidir.</br>
 select Concat(Name,' ',Surname) as [Adı ve SoyAdı]  from Employees  order by [Adı ve SoyAdı] desc
 
-## Distinct
+## DISTINCT
 Distinct komutu farklı kayıtları elde etmemizi, yani tekrar eden kayıtları tekil olarak listelememizi sağlar.</br>
 select Distinct DepartmentId from Employees </br>
 select distinct DepartmentId, SalaryDay from Employees
 
 
-## Top
+## TOP
 Tablomuzdan kaç kayıt getirmek istiyorsak sorgumuza onu ekleriz.</br>
 select top 2 * from Employees 
 
@@ -180,7 +180,7 @@ Bu yukarıdaki sorguyu çalıştırdığımızda en düşük maaşlı iki kişi 
 select top 1 * from Employees order by Salary asc => bu komut ile ekrana bir kişi geldi. Fakat maaşı bu maaşa eşit olan biri daha var. İşte bu gibi durumlar için, with ties kullanırız.</br>
 select top 1 with ties * from Employees order by Salary asc
 
-## AGGREGATE FUNCTİONS
+## AGGREGATE FUNCTIONS
 Aggregate functionlar select ifadesiyle kullanılan geriye tek hücre olarak sonuç dönen fonksiyonlardır.</br>
 
 select COUNT(*) from Employees -- bütün satırları sayar.</br>
