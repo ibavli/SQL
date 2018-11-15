@@ -81,6 +81,14 @@ insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ömer','Fa
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','Fadime','12345678945',750,3)</br>
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ayşe','Fatma','12345678956',750,3)</br>
 
+## INSERT INTO SELECT
+Bir tablomuzdaki kayıtları, bir başka tabloya (aynı alanlara sahip) kopyalayabiliriz. Bunu da Insert Into Select ile yapıyoruz. Örnek olarak Employee tablomuz ile aynı alanlara sahip EmployeeCopyOne isimli bir tablo oluştup, aşağıdaki kodu çalıştırdığımızda, Employee tablosundaki veriler kopya tablomuza eklenir.</br>
+
+Insert Into EmployeesCopyOne</br>
+Select *</br>
+From Employees</br>
+Bu işlem ile, tablomuzdaki bütün kayıtları direkt kopyaladık.</br></br>
+
 ## ALİASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
 
