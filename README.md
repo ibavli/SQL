@@ -166,7 +166,9 @@ select Concat(Name,' ',Surname) as [Adı ve SoyAdı]  from Employees  order by [
 
 ## Distinct
 Distinct komutu farklı kayıtları elde etmemizi, yani tekrar eden kayıtları tekil olarak listelememizi sağlar.</br>
-select Distinct DepartmentId from Employees 
+select Distinct DepartmentId from Employees </br>
+select distinct DepartmentId, SalaryDay from Employees
+
 
 ## Top
 Tablomuzdan kaç kayıt getirmek istiyorsak sorgumuza onu ekleriz.</br>
