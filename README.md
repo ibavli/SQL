@@ -87,6 +87,7 @@ Bir tablomuzdaki kayıtları, bir başka tabloya (aynı alanlara sahip) kopyalay
 Insert Into EmployeesCopyOne</br>
 Select *</br>
 From Employees</br>
+</br>
 Bu işlem ile, tablomuzdaki bütün kayıtları direkt kopyaladık.</br></br>
 
 ## ALİASES (TAKMA AD)
