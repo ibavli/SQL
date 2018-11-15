@@ -1,7 +1,7 @@
 ## SQL'DE DOSYA TİPLERİ
 SQL'de dosya tipleri ikiye ayrılır. 
-1. MDF (Meta Data File)
-2. LDF (Log Data File)
+**1. MDF (Meta Data File)
+2. LDF (Log Data File)**
 Mdf : Veritabanına girilmiş olan verilerin aslını tutar. Yani veritabanına eklediğimiz bilgilerin kendisi tutar. 
 Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (Şu kullanıcı şu ip’den giriş yaptı, şu bilgiyi güncelledi gibi bilgiler yer alır) 
  
@@ -9,14 +9,14 @@ Ldf : Log dosyasıdır. Veritabanında yapılan işlemlerin loglarını tutar. (
 
 ## CONSTRAINTS
 Constraint tablolardaki alanlara girilen verilerin kontrollerini yapan ve kısıtlamalar getiren tekniklerin bütünüdür. Constraint ile amaçlanan tamamen veri bütünlüğünü, doğrulamasını ve tutarlılığını sağlamaktır.</br>
-Not Null, Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.
+**Not Null, Primary key, Foreign Key, Unique Key, Check ve Default, Constraintlerdir.**
 
 
 ## TRANSACT SQL (T-SQL)
 T-sql, sql dilinin sql servera uyarlanmış halidir. T-sql Sql'i referans almış ve daha gelişmiş bir dildir. T-sql Microsoft Sql Server ile kullanılan bir sorgu dilidir. T-sql dilini genellikle 3 başlık altında inceleriz. Bunları;
-1. Data Definition Language (DDL) = (create, alter, drop)
-2. Data Manipulation Language (DML) = (select, insert, update, delete)
-3. Data Control Language (DCL) = (grant, deny, revoke) </br>
+**1. Data Definition Language (DDL) **= (create, alter, drop)
+**2. Data Manipulation Language (DML)** = (select, insert, update, delete)
+**3. Data Control Language (DCL)** = (grant, deny, revoke) </br>
 olarak ayırabiliriz.
 
 
@@ -38,7 +38,7 @@ create table Departments</br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int identity(1,1),</br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmanName nvarchar(50) not null</br>
 )
-
+**
 ## UNİQUE CONSTRAİNTS
 Bir tabloda primary key kullanarak sadece bir tane benzersiz alan elde edebilirsiniz. Primary key tanımlamamızdaki amaç alanı benzersiz yapmak değil bütün alanların o alana bağımlı olmasını sağlamaktır. Unique Key ise alanı sadece benzersiz yapmak için kullanılır. Unique Key Primary Key'in aksine birden fazla olabilir. Tablo tasarımını yaparken bir alanın UNIQUE olup olmayacağına iyi karar vermemiz gerekir. Çünkü daha sonradan ALTER komutu ile alanın özelliklerini değiştirirken, ilgili alanda tekrarlayan kayıtlar varsa UNIQUE değerini veremeyiz. </br> 
 Aşağıdaki kod ile TcNo alanını unique key olarak tanımlıyoruz. 
