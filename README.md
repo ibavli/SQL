@@ -204,3 +204,26 @@ select</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	when 3 then 'Sales'</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end as [Departmanlar] from Employees </br>
 		
+
+## GROUP BY
+Group by tablodaki ortak verilerin gruplanmasını sağlar. Önce gruplanacak alanı belirleriz, daha sonra o alan için select sorgusu çekeriz. Sütundaki ortak alan değere göre alanlar gruplanır. </br> </br>
+select DepartmentId from Employees
+group by DepartmentId</br></br>
+Bu kod ile Employees tablosunu DepartmentId alanına göre grupladık ve daha sonrasında bu alana göre select sorgusu çektik.
+</br></br>
+SELECT DepartmentId, SUM(Salary) as [Maas toplamı]</br>
+FROM Employees</br>
+Group By DepartmentId</br></br>
+
+SELECT DepartmentId, COUNT(Salary) as [Calisan sayisi]</br>
+FROM Employees</br>
+Group By DepartmentId</br></br>
+
+SELECT DepartmentId,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;COUNT(Salary) as [Calisan sayisi],</br>
+&nbsp;&nbsp;&nbsp;&nbsp;SUM(Salary) as [Maas toplamı],</br>
+&nbsp;&nbsp;&nbsp;&nbsp;AVG(Salary) as [Ortalama maas],</br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAX(Salary) as [Max maas],</br>
+&nbsp;&nbsp;&nbsp;&nbsp;MIN(Salary) as [Min maas]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;FROM Employees</br>
+Group By DepartmentId</br>
