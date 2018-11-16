@@ -227,3 +227,10 @@ SELECT DepartmentId,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;MIN(Salary) as [Min maas]</br>
 &nbsp;&nbsp;&nbsp;&nbsp;FROM Employees</br>
 Group By DepartmentId</br>
+
+
+## HAVING
+Having, group by kullanımında filtreleme yapmak için kullanılır. Group by kullanımından sonra where komutunu kullanamayız. Yukarıdaki group by komutundan sonra Id'si 2 olmayanları listelemek için şu kodu yazarız: </br></br>
+select DepartmentId from Employees
+group by DepartmentId
+having DepartmentId <> 2
