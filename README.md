@@ -123,6 +123,12 @@ values<br>
 (50,'test', 2)<br>
 set identity_insert EmployeesNames off<br> 
 
+## DELETE VE TRUNCATE TABLE
+Delete bir tablodan satır veya satırları silmek için kullanılır. Özellikle tüm satırı etkileyeceği için dikkatli kullanılması gereken bir komuttur. Biraz önce oluşturduğumuz EmployeesNames tablosundaki verileri silmek için şu kodu çalıştıralım.</br></br>
+delete from EmployeesNames</br></br>
+Bu komut ile tüm verileri sildik fakat yeni bir veri eklediğimizde en son kalan Id'den artan şekilde devam eder. Yani bu komut verileri tablodan kalıcı olarak siliyor ama transaction-log'da kayıtlı olarak kalıyor. Eğer Id'imizde birden başlasın demek isterseniz, şu kodu yazmalısınız.</br></br>
+
+truncate table EmployeesNames
 
 ## ALIASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
