@@ -130,6 +130,13 @@ Bu komut ile tüm verileri sildik fakat yeni bir veri eklediğimizde en son kala
 
 truncate table EmployeesNames
 
+## UPDATE
+Update komutu tablodaki var olan bir verinin değiştirilmesi için kullanılır. Bu komutta delete komutu gibi tüm tabloyu etkileyen bir komut olduğu için dikkatli kullanılması gerekmektedir. Tüm çalışanların maaşına %15 zam yaptığımızı düşünelim. Bu güncellemeyi şu kod ile yaparız;</br></br>
+update Employees set Salary = Salary + (Salary/100) * 15</br></br>
+Eğer sadece departmenId'si 1 olan yani software departmanındakilerin maaşını arttırmak istersek ise;</br></br>
+update Employees set Salary = Salary + (Salary/100) * 15 where DepartmentId = 1</br></br>
+komutunu çalıştırırız.
+
 ## ALIASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
 
