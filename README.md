@@ -89,8 +89,8 @@ Select *</br>
 From Employees</br>
 </br>
 
-Bu işlem ile, tablomuzdak bütün kayıtları direkt kopyaladık.</br></br>
-Peki sadece bir iki alanı kopyalamak istersek? İşte bunun içinde örnek bir senaryo oluşturalım ve ilk olarak şöyle bir tablo oluşturalım.</br></br>
+Bu işlem ile, tablomuzdak bütün kayıtları direkt kopyaladık.</br>
+Peki sadece bir iki alanı kopyalamak istersek? İşte bunun içinde örnek bir senaryo oluşturalım ve ilk olarak şöyle bir tablo oluşturalım.</br>
 
 create table EmployeesNames </br>
 (</br>
@@ -98,9 +98,9 @@ create table EmployeesNames </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NameSurname nvarchar(max),</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint pkEmployeesNames primary key(Id)</br>
-)</br></br>
+)</br>
 
-Daha sonra Id'si 1 olmayan verileri, name surname alanlarını concat ile birleştirerek yeni tablomuza kopyalayalım. Bunun için ise aşağıdaki kodları yazmalıyız.</br></br>
+Daha sonra Id'si 1 olmayan verileri, name surname alanlarını concat ile birleştirerek yeni tablomuza kopyalayalım. Bunun için ise aşağıdaki kodları yazmalıyız.</br>
 
 insert EmployeesNames</br>
 (NameSurname, DepartmentId)</br>
