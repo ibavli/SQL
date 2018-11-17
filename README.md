@@ -82,14 +82,32 @@ insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Hatice','F
 insert Employees (Name, Surname, TcNo, Salary, DepartmentId) values ('Ayşe','Fatma','12345678956',750,3)</br>
 
 ## INSERT INTO SELECT
-Bir tablomuzdaki kayıtları, bir başka tabloya (aynı alanlara sahip) kopyalayabiliriz. Bunu da Insert Into Select ile yapıyoruz. Örnek olarak Employee tablomuz ile aynı alanlara sahip EmployeeCopyOne isimli bir tablo oluştup, aşağıdaki kodu çalıştırdığımızda, Employee tablosundaki veriler kopya tablomuza eklenir.</br>
+Bir tablomuzdaki kayıtları, bir başka tabloya (aynı alanlara sahip) kopyalayabiliriz. Bunu da Insert Into Select ile yapıyoruz. Örnek olarak Employees tablomuz ile aynı alanlara sahip EmployeeCopyOne isimli bir tablo oluştup, aşağıdaki kodu çalıştırdığımızda, Employee tablosundaki veriler kopya tablomuza eklenir.</br>
 
 Insert Into EmployeesCopyOne</br>
 Select *</br>
 From Employees</br>
 </br>
-Bu işlem ile, tablomuzdaki bütün kayıtları direkt kopyaladık.</br></br>
 
+Bu işlem ile, tablomuzdak bütün kayıtları direkt kopyaladık.</br></br>
+Peki sadece bir iki alanı kopyalamak istersek? İşte bunun içinde örnek bir senaryo oluşturalım ve ilk olarak şöyle bir tablo oluşturalım.</br></br>
+
+create table EmployeesNames </br>
+(</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Id int identity(1,1),</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NameSurname nvarchar(max),</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepartmentId int</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint pkEmployeesNames primary key(Id)</br>
+)</br></br>
+
+Daha sonra Id'si 1 olmayan verileri, name surname alanlarını concat ile birleştirerek yeni tablomuza kopyalayalım. Bunun için ise aşağıdaki kodları yazmalıyız.</br></br>
+
+insert EmployeesNames</br>
+(NameSurname, DepartmentId)</br>
+select CONCAT(Name, ' ' , Surname), DepartmentId from Employees</br>
+where DepartmentId <>1</br>
+
+Artık yeni oluşturmuş olduğumuz tablomuza, Employees tablomuzdan Id'si 1 olmayan kayıtlar name ve surname alanları concat ile birleştirilerek alınmıştır.
 ## ALIASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
 
