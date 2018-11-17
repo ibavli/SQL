@@ -87,7 +87,6 @@ Bir tablomuzdaki kayıtları, bir başka tabloya (aynı alanlara sahip) kopyalay
 Insert Into EmployeesCopyOne</br>
 Select *</br>
 From Employees</br>
-</br>
 
 Bu işlem ile, tablomuzdak bütün kayıtları direkt kopyaladık.</br>
 Peki sadece bir iki alanı kopyalamak istersek? İşte bunun içinde örnek bir senaryo oluşturalım ve ilk olarak şöyle bir tablo oluşturalım.</br>
