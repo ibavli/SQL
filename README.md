@@ -107,6 +107,23 @@ select CONCAT(Name, ' ' , Surname), DepartmentId from Employees</br>
 where DepartmentId <>1</br>
 
 Artık yeni oluşturmuş olduğumuz tablomuza, Employees tablomuzdan Id'si 1 olmayan kayıtlar name ve surname alanları concat ile birleştirilerek alınmıştır.
+
+## IDENTITY INSERT
+Biz bir tablo oluşturduğumuzda tanımladığımız Id'ye primary key ve bir bir artan özelliğini veririz. Daha sonra bu tabloya bir veri eklerken Id alanına da kendimiz değer vermeye kalkarsak hata alırız. Bir önceki örnekte oluşturduğumuz EmployeesNames tablosu için aşağıdaki kodu çalıştırarak hatayı alabilirsiniz.</br>
+
+insert EmployeesNames</br>
+(Id, NameSurname, DepartmentId)</br>
+values</br>
+(50,'test', 2)</br><br>
+Evet şimdi hatayı aldık ve gözlemledik. Peki illa Id alanına kendim veri eklemek istiyorum derseniz, identity_insert komutu ile bunu yapabilirsiniz. Aşağıdaki kodu çalıştırarak Id alanına kendiniz veri ekleyebilirsiniz.<br><br>
+set identity_insert EmployeesNames on <br>
+insert EmployeesNames<br>
+(Id, NameSurname, DepartmentId)<br>
+values<br>
+(50,'test', 2)<br>
+set identity_insert EmployeesNames off<br> 
+
+
 ## ALIASES (TAKMA AD)
 Aliases result tablosunda bir tablonun veya sütunun ismini anlık olarak değiştirmek için kullanılır. Özelikle kolon isimlerinin daha anlaşılır olması, tablo isimlerinin kısaltılması için tercih edilir.</br>
 
