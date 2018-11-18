@@ -344,4 +344,14 @@ select</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on e.DepartmentId = d.DepartmanId</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group by d.DepartmanName</br></br>
 
+## OUTER JOINS
+Outer joinler (dış birleşim) Left, Rigth, Full join olarak 3’e ayrılır.
 
+## LEFT OUTER JOINS
+Left outer veya left join iki tablodaki birleştirirken öncelikle sol tablonun tamamı sağ tablonun sadece kesişenlerini alır. Sol tablodaki ve sağ tablodaki kesişen kayıtlar ve sol tablodaki kesişmeyen kayıtlar listelenir. Sol taraftan kesişmeyen kayıtların karşısında NULL değerler vardır.</br></br>
+select  * from</br>
+Departments as d</br>
+left join</br>
+Employees as e</br>
+on d.DepartmanId = e.DepartmentId</br></br>
+Sorgu sonucunu incelediğimizde Departments tablosu sol tablo, Employees tablosu sağ tablodur ve sol tablada Human Resources alanının karşı satırlarının NULL olduğunu görürüz. Inner joinden farkıda burada ortaya çıkıyor. 
