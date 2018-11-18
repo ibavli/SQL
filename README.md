@@ -450,5 +450,5 @@ select * from</br>
 (</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select CONCAT(Name,' ', Surname) as FullName from Employees</br>
 )</br>
-as geciciTablo where geciciTablo.FullName = 'Ali Veli' </br>
+as derivedTable where derivedTable.FullName = 'Ali Veli' </br>
 
