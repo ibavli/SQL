@@ -354,4 +354,11 @@ Departments as d</br>
 left join</br>
 Employees as e</br>
 on d.DepartmanId = e.DepartmentId</br></br>
-Sorgu sonucunu incelediğimizde Departments tablosu sol tablo, Employees tablosu sağ tablodur ve sol tablada Human Resources alanının karşı satırlarının NULL olduğunu görürüz. Inner joinden farkıda burada ortaya çıkıyor. 
+Sorgu sonucunu incelediğimizde Departments tablosu sol tablo, Employees tablosu sağ tablodur ve sol tablada Human Resources alanının karşı satırlarının NULL olduğunu görürüz. Inner joinden farkıda burada ortaya çıkıyor. </br></br>
+Şimdiki örneğimizde ise sol tablomuzda null olan alanları ekrana getirelim</br></br>
+select   *  from</br>
+Departments as d </br>
+left join</br>
+Employees as e</br>
+on e.DepartmentId = d.DepartmanId</br>
+ where e.DepartmentId is null </br>
