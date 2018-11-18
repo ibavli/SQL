@@ -293,7 +293,8 @@ T-sql 4 faklı join türü destekler. Bunlar;
  - Cross Join
  
  ## INNER JOIN
- İki adet tablomuzdaki kayıtları belli bir kritere göre birleştirmek için INNER JOIN komutu kullanılırız. Genelde en çok tercih edilen join yöntemidir.</br></br>
+ İki adet tablomuzdaki kayıtları belli bir kritere göre birleştirmek için INNER JOIN komutu kullanılırız. Genelde en çok tercih edilen join yöntemidir.</br>
+NOT: INNER JOIN yerine sadece JOIN kullanılabilir.</br></br>
  select</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	e.Name,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	e.Surname,</br>
