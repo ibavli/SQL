@@ -378,3 +378,37 @@ Employees as e</br>
 full join </br>
 Departments as d </br>
 on e.DepartmentId = d.DepartmanID </br>
+
+## SELF JOIN
+Tabloların kendisiyle birleştirilmesi işlemidir. Örnek olarak Categories isimli tablo oluşturalım ve senaryomuza başlayalım.</br></br>
+create table Categories</br>
+ ( </br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Id int identity(1,1), </br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CategoryName nvarchar(max), </br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UpperCategoryId int</br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint pkCategories primary key(ID), </br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint fkCategories foreign key(UpperCategoryId) references Categories(Id)</br>
+) </br></br>
+
+Bu örnekte aynı tablo içerisinde alt kategori ve üst kategori bilgilerini tutuyoruz. Bu sayede sınırsız kategori ekliyoruz. Üst kategori olan satırların UpperCategoryId’lerini null ekliyoruz. Alt kategori olanların ise UpperCategoryId’sine aynı tablodaki UpperCategoryId alanın ID alanını set ediyoruz. Örnek olarak bir kaç veri ekleyelim.</br></br>
+
+set identity_insert Categories on </br>
+insert Categories</br>
+(Id,CategoryName,UpperCategoryId)</br>
+values</br>
+(1,'Kadın Giyim',Null), -- Üst kategori</br>
+(2,'Erkek Giyim',Null), -- Üst kategori</br>
+(3,'Abiye',1), -- Kadın Giyim kategorisinin alt kategorisi</br>
+(4,'Elbise',1), -- Kadın Giyim kategorisinin alt kategorisi</br>
+(5,'Deri Ceket',2), -- Erkek Giyim kategorisinin alt kategorisi</br>
+(6,'Mont',2), --  Erkek Giyim kategorisinin alt kategorisi</br>
+(7,'Deri Mont',6), -- Mont kategorisinin alt kategorisi</br>
+(8,'Şişme Mont',6), -- Mont kategorisinin alt kategorisi</br>
+(9,'Çocuk giyim',NULL) -- Üst kategori </br>
+set identity_insert Categories off</br></br>
+Şimdi bir tane self join örneği yapalım </br></br>
+select * from</br>
+Categories as UpperCat</br>
+join</br>
+Categories SubCar </br>
+on UpperCat.Id = SubCar.UpperCategoryId </br>
