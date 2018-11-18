@@ -370,3 +370,11 @@ Employees as e </br>
 right join</br>
 Departments as d</br>
 on e.DepartmentId = d.DepartmanID
+
+## FULL OUTER JOIN
+Her iki tablodaki kesişen ve kesişmeyen kayıtların hepsini getirir.</br></br>
+select * from</br>
+Employees as e</br>
+full join </br>
+Departments as d </br>
+on e.DepartmentId = d.DepartmanID </br>
