@@ -320,4 +320,14 @@ select * </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	from Employees as e</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	inner join </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Departments as d</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	on e.DepartmentId = d.DepartmanId</br></br>
+
+Bu iki tablodan biraz daha anlamlı bir veri elde edelim;</br>
+select</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	CONCAT(e.Name, ' ', e.Surname) as [Name-Surname],</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	d.DepartmanName   </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	from</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Employees as e</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	join</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Departments as d</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	on e.DepartmentId = d.DepartmanId</br>
