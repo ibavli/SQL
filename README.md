@@ -421,6 +421,8 @@ select * from Employees -- iç sorgu, dış sorguya aktarılır </br>
 )</br>
 as derivedTable</br>
 </br>
+Yukarıdaki örneğimizde Employees tablosundaki kayıtları dış sorguya aktardık ve dış sorgu sonucunda oluşacak tabloya derivedTable ismini verdik. </br></br>
+
 select DepartmanName, EmployeeCount</br>
 from</br>
 (</br>
