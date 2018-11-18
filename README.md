@@ -330,4 +330,17 @@ select</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Employees as e</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	join</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Departments as d</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	on e.DepartmentId = d.DepartmanId</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	on e.DepartmentId = d.DepartmanId</br></br>
+
+Birde DepartmentName alanına göre gruplayarak, grup küme elemanlarını saydırıyoruz ve hangi departmanımızda kaç çalışanımız varmış görüyoruz.</br>
+select</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.DepartmanName,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT(*) as EmployeesCount</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employees as e</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;join</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Departments as d</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on e.DepartmentId = d.DepartmanId</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group by d.DepartmanName</br></br>
+
+
