@@ -386,11 +386,11 @@ create table Categories</br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Id int identity(1,1), </br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CategoryName nvarchar(max), </br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UpperCategoryId int</br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint pkCategories primary key(ID), </br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint pkCategories primary key(Id), </br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constraint fkCategories foreign key(UpperCategoryId) references Categories(Id)</br>
 ) </br></br>
 
-Bu örnekte aynı tablo içerisinde alt kategori ve üst kategori bilgilerini tutuyoruz. Bu sayede sınırsız kategori ekliyoruz. Üst kategori olan satırların UpperCategoryId’lerini null ekliyoruz. Alt kategori olanların ise UpperCategoryId’sine aynı tablodaki UpperCategoryId alanın ID alanını set ediyoruz. Örnek olarak bir kaç veri ekleyelim.</br></br>
+Bu örnekte aynı tablo içerisinde alt kategori ve üst kategori bilgilerini tutuyoruz. Bu sayede sınırsız kategori ekliyoruz. Üst kategori olan satırların UpperCategoryId’lerini null ekliyoruz. Alt kategori olanların ise UpperCategoryId’sine aynı tablodaki UpperCategoryId alanın Id alanını set ediyoruz. Örnek olarak bir kaç veri ekleyelim.</br></br>
 
 set identity_insert Categories on </br>
 insert Categories</br>
