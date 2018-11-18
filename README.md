@@ -362,3 +362,11 @@ left join</br>
 Employees as e</br>
 on e.DepartmentId = d.DepartmanId</br>
  where e.DepartmentId is null </br>
+ 
+ ## RIGHT OUTER JOIN
+ Left join'in tam tersidir.</br></br>
+select * from </br>
+Employees as e </br>
+right join</br>
+Departments as d</br>
+on e.DepartmentId = d.DepartmanID
