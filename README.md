@@ -438,4 +438,17 @@ Departments as dp</br>
 on</br>
 DepartmentSummary.DepartmentId = dp.DepartmanId</br>
 
-Örneğimizde iç sorgudan Employees tablosunun DepartmentId alanına göre grupladık ve Count ile alt kümelerini saydırdık. Daha sonra dış sorguya aktarılan veriyi Departments tablosuyla birleştirerek DepartmanName ve EmployeeCount'u listeledik. 
+Örneğimizde iç sorgudan Employees tablosunun DepartmentId alanına göre grupladık ve Count ile alt kümelerini saydırdık. Daha sonra dış sorguya aktarılan veriyi Departments tablosuyla birleştirerek DepartmanName ve EmployeeCount'u listeledik. </br></br>
+
+Derived table'a neden ihtiyaç olduğunu aşağıdaki sorgular ile daha iyi anlarız. </br></br>
+select </br>
+CONCAT(Name,' ', Surname) as FullName</br>
+from Employees</br>
+where FullName = 'Ali Veli' </br></br>
+Bu yukarıdaki sorguyu çalıştırdığımızda hata alırız. Çünkü aliases kullanımını, where ile kullanamayız. Sadece order by ile kullanabiliriz. Bu sorguyu şimdi derived table ile yapalım.</br></br>
+select * from</br>
+(</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select CONCAT(Name,' ', Surname) as FullName from Employees</br>
+)</br>
+as geciciTablo where geciciTablo.FullName = 'Ali Veli' </br>
+
