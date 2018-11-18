@@ -437,3 +437,5 @@ inner join</br>
 Departments as dp</br>
 on</br>
 DepartmentSummary.DepartmentId = dp.DepartmanId</br>
+
+Örneğimizde iç sorgudan Employees tablosunun DepartmentId alanına göre grupladık ve Count ile alt kümelerini saydırdık. Daha sonra dış sorguya aktarılan veriyi Departments tablosuyla birleştirerek DepartmanName ve EmployeeCount'u listeledik. 
