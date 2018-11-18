@@ -412,3 +412,26 @@ Categories as UpperCat</br>
 join</br>
 Categories SubCar </br>
 on UpperCat.Id = SubCar.UpperCategoryId </br>
+
+## DERIVED TABLE
+Derived Table bir veya daha fazla tablonun birleştirilerek select sonucu oluşan sanal tablolardır. Derived table sadece anlık çözüm üretmek için kullanılır. Derived table from komutundan sonra içteki select sorgusunun sonucunu miras alır ve döndürür. Derived table kalıcı olarak saklanan bir tablo değildir. As deyiminden sonra tek satırlık kullanım alanı vardır (where, order by, group by kullanılabilir) Örnek olarak;</br></br>
+select * from</br>
+(</br>
+select * from Employees -- iç sorgu, dış sorguya aktarılır </br>
+)</br>
+as derivedTable</br>
+</br>
+select DepartmanName, EmployeeCount</br>
+from</br>
+(</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select DepartmentId,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT(*) as EmployeeCount</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employees</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group by DepartmentId</br>
+)</br>
+as DepartmentSummary</br>
+inner join</br>
+Departments as dp</br>
+on</br>
+DepartmentSummary.DepartmentId = dp.DepartmanId</br>
