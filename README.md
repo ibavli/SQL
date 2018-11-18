@@ -281,3 +281,43 @@ Having, group by kullanımında filtreleme yapmak için kullanılır. Group by k
 select DepartmentId from Employees
 group by DepartmentId
 having DepartmentId <> 2
+
+
+## JOINS
+Join ifadesi iki veya daha fazla tabloyu result penceresinde birleştirmek için kullanılır. Bu farklı tablolar genellikle ilişkilendirilen tablolardır. Join, ilişkisel veritabanlarında bir tablodaki ikincil anahtar (foreign key) üzerinden  parent tablodaki bütün sütunlara erişmek için kullanılır. Yani birleştirme benzer alanlar üzerinden yapılır.</br>
+Dikkat : Join ile tablolar sadece sorgu sonucunda birleştirilerek daha anlamlı sonuçlar elde etmek için kullanılır.</br></br>
+T-sql 4 faklı join türü destekler. Bunlar;
+ - Inner Join
+ - Outer Join
+ - Self Join
+ - Cross Join
+ 
+ ## INNER JOIN
+ İki adet tablomuzdaki kayıtları belli bir kritere göre birleştirmek için INNER JOIN komutu kullanılırız. Genelde en çok tercih edilen join yöntemidir.</br></br>
+ select</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	e.Name,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	e.Surname,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	e.DepartmentId as EmployeeDepartmentID,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	d.DepartmanID,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	d.DepartmanName</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	from Employees as e</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		inner join</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Departments as d on e.DepartmentId = d.DepartmanID </br>
+</br>
+Yukarıdaki örnekte Employees ve Department tablolarını DepartmentId’leri üzerinden birleştirdik. Her bir tabloya ayrı ayrı select çekip incelediğimizde, sadece ilişkili kayıtların geldiğini ve iki alan değerlerininde birbirine eşit olduğunu görürüz. Eğer Departments tablosuna bir kayıt eklersek ve bunu Employee tablosundaki herhangi bir veri ile ilişkilendirmezsek, yukarıdaki sorguda gelmez. Bu aşağıdaki kodu çalıştırıp ardından tekrar join komutunu deneyebilirsiniz. </br></br>
+insert Departments (DepartmanName) values ('Human Resources')
+<br/></br>
+İki tablonun tüm verileri gelsin istersek;<br/>
+select * </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	from Employees as e</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	inner join </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Departments as d</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	on e.DepartmentId = d.DepartmanId
+	</br></br>
+	Sadece Employees tablosunun bütün verileri gelsin, Departments tablosundan ise sadece DepartmentName alanı gelsin istersek;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	select</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	e.* , d.DepartmanName</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	from Employees as e</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	inner join </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Departments as d</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	on e.DepartmentId = d.DepartmanId</br>
