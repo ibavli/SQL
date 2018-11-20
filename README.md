@@ -481,9 +481,11 @@ inner join</br>
 Employees as e </br>
 on</br>
 d.DepartmanID = e.DepartmentId </br>
-group by DepartmanName</br>
+group by DepartmanName</br></br>
 
-
+Yukarıdaki sorguda sonuç satır olarak listelendi. Şimdi bu sorguyu bir derived table içerisine alıyoruz ve pivot yapıyoruz. 
+ 
+</br></br>
 select * from</br>
 (</br>
 select</br>
@@ -498,6 +500,7 @@ group by DepartmanName</br>
 )</br>
 as pivotTable</br>
 </br>
+
 pivot</br>
 (</br>
 SUM(TotalCost)</br>
