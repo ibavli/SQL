@@ -543,7 +543,7 @@ Sql server içerisinde bize sunulan hazır fonksiyonlar vardır. Aggregate funct
 1. Scalar-Valued Functions</br>
 2. Table-Valued Functions </br>
 
-### Scalar-Valued Functions
+### 1) Scalar-Valued Functions
 Scalar valued function geriye tek bir hücre dönen fonksiyonlardır. Function tanımlarken function dönüş tipimizi belirliyoruz ve function gövdesinde dönüş tipinde değer çıkarıyoruz. Ekrana mesaj veren bir fonksiyon yazalım;</br></br>
 
 create function fncMessage()</br>
@@ -576,3 +576,32 @@ select</br>
 dbo.fncFullName(e.Name, e.Surname) as FullName,</br>
 TcNo</br>
 from Employees as e</br>
+
+
+### 2) Table-Valued Functions
+Table-value functions, geriye birden fazla satır ve sütun dönmesi için kullanılır. Tablo dönen fonksiyonları anlamak için viewlar hakkında bilgimiz olmalı. Tablo dönen fonksiyon yerine view çoğu zaman ihtiyacımızı karşılar. Table-valued functionların viewlardan farkı parametre alabilmeleridir. Aşağıdaki kodlarda view ve table-valued function nasıl tanımlanır ona dikkat edelim ve farklılıklarını inceleyelim. Örneğimizde EmployeeId'sini gönderdiğimiz çalışana erişmek için objelerimizi inceleyeceğiz. </br></br>
+
+create view viewEmployees as  select * from Employees </br></br>
+
+Oluşturduğumuz bu view üzerinden EmployeeId'si 3 olan çalışanımızı çağırıyoruz. </br></br>
+
+select * from viewEmployees where EmployeeId = 3</br></br>
+
+create function fncGetEmployee(@employeeId int)
+returns table
+as
+return (select * from Employees  
+ where EmployeeId = @employeeId) 
+
+
+Burada oluşturduğumuz view sadece çalışanları listeliyor. View içerisinde EmployeeId 3 olan çalışanımızı çağırabilirdik fakat bu sefer sadece sürekli EmployeeId'si 3 olan çalışan gelecekti. Bu durumda bu view static çalışacak. Bu durumda diğer çalışanlar içinde ayrı ayrı view yazamayacağımız için view dan bütün satırların gelmesini sağladık ve view üzerinden filtreleme yaptık. Şimdi aynı senaryoyu table function ile yazalım.</br></br>
+
+create function fncGetEmployee(@employeeId int)</br>
+returns table</br>
+as</br>
+return (select * from Employees  </br>
+where EmployeeId = @employeeId) </br></br>
+
+Table-Valued function'ı incelediğimizde tıpkı scalar functionlar gibi tanımladık. Returns bölüme table ile dönüş tipinin table olduğunu as den sonra ise return ile select ifademizi tanımladık. </br></br>
+
+SELECT * FROM dbo.fncGetEmployee(3)
