@@ -506,3 +506,34 @@ pivot</br>
 SUM(TotalCost)</br>
 for DepartmanName in ([Accounting],[Sales],[Software])</br>
 ) as pivotTable </br>
+
+
+## VIEWS
+Sql'de viewlar, sanal tablo olarak kullanılan, gerçek tablodan veriyi alarak özetleyen tablolardır. Derived tablolaların aksine anlık değillerdir, kalıcı olarak saklanırlar. Gerçek tablolardan farklı select sonucu oluşurlar. Viewlar sürekli yazdığımız sql sorgularımızı veya  karmaşık iç içe yazılan (subquery) veya çoklu tablolarımızın (joinler) ihtiyaç halinde sürekli yazmak yerine bir kere yazıp sürekli kullanma kolaylığı sağlar. Aşağıdaki sorguda SQLExercise veritabanına Employees tablomuzdan Name, Surname, Salary alanlarını getiren bir view oluştuyoruz.</br></br>
+
+create view EmployeesSummary</br>
+as</br>
+select Name,Surname,Salary from Employees</br></br>
+
+Yukarıdaki sorguyu çalıştırdığımızda select sonucu oluşan 3 sütunlu bir EmployeesSummary viewı oluşturduk. Şimdi bu oluşturduğumuz viewı çağıralım.</br></br>
+
+select * from EmployeesSummary</br></br>
+
+Sonucu incelediğimizde view içerisindeki sorgumuzdan sonucun döndüğünü görüyoruz. Bunu bir metot gibi düşünecek olursak her view çağrıldığında gövdesindeki komut çalışacak ve sonuç listelenecek. Aslında sonuç değişmesede bir sonraki kullanımlarda sadece view ismini çağıracağız.</br>
+Dikkat : View oluşturuken kesinle select ifadeleri içerisindeki sütun isimleri belli olmalıdır (İsimsiz sütun olmamalıdır) ve ayrıca sütun isimleri farklı olmalıdır. Bu aşağıdaki kodda Employee tablosundaki DepartmentId ile Departments tablosundaki DepartmentId isimleri çakışacağı için böyle bir çözüm üretilir.</br></br></br>
+
+create view ViewEmployeesAndDepartments</br>
+as</br>
+select</br>
+e.Name,</br>
+e.Surname,</br>
+d.DepartmanName,</br>
+e.DepartmentId as EmployeeDepartmentId,</br>
+d.DepartmanId as DepartmentDepartmentId</br>
+from Employees as e</br>
+inner join</br>
+Departments as d</br>
+on</br>
+e.DepartmentId = d.DepartmanID </br>
+
+ 
