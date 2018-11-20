@@ -494,7 +494,7 @@ inner join</br>
 Employees as e</br>
 on</br>
 d.DepartmanID = e.DepartmentId</br>
-group by TotalCost</br>
+group by DepartmanName</br>
 )</br>
 as pivotTable</br>
 </br>
