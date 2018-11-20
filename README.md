@@ -534,6 +534,7 @@ from Employees as e</br>
 inner join</br>
 Departments as d</br>
 on</br>
-e.DepartmentId = d.DepartmanID </br>
+e.DepartmentId = d.DepartmanID </br></br>
 
- 
+select * from ViewEmployeesAndDepartments
+
