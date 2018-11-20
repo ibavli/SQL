@@ -452,3 +452,54 @@ select * from</br>
 )</br>
 as derivedTable where derivedTable.FullName = 'Ali Veli' </br>
 
+
+## SUB QUERY
+T-Sql'de sorgu içerisinde sorgular yazabiliriz. Bazen filtreleme yapmak için, bazen select ifadesinde başka bir tablodan sütun çıkartmak için kullanırız. Örnek olarak;</br></br>
+
+select * from Employees</br>
+where Salary =</br>
+(  </br>
+select Max(Salary) from Employees  </br>
+) </br></br>
+ 
+Veya bir başka örnek.
+</br></br>
+select * from Departments</br>
+where DepartmanId not in</br>
+(</br>
+select DepartmentId from Employees</br>
+)</br>
+
+## SQL PIVOT
+Pivot sorgular bir select ifadesiyle satır olarak dönen sonuçların sütunlara çevrilmesi için kullanılır. </br></br>
+
+select</br>
+DepartmanName, </br>
+Sum (e.Salary) as TotalCost</br>
+from Departments as d</br>
+inner join</br>
+Employees as e </br>
+on</br>
+d.DepartmanID = e.DepartmentId </br>
+group by DepartmanName</br>
+
+
+select * from</br>
+(</br>
+select</br>
+DepartmanName,</br>
+Sum (e.Salary) as TotalCost</br>
+from Departments as d</br>
+inner join</br>
+Employees as e</br>
+on</br>
+d.DepartmanID = e.DepartmentId</br>
+group by TotalCost</br>
+)</br>
+as pivotTable</br>
+</br>
+pivot</br>
+(</br>
+SUM(TotalCost)</br>
+for DepartmanName in ([Accounting],[Sales],[Software])</br>
+) as pivotTable </br>
