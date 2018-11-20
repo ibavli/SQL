@@ -538,3 +538,41 @@ e.DepartmentId = d.DepartmanID </br></br>
 
 select * from ViewEmployeesAndDepartments
 
+## USER DEFINED FUNCTIONS
+Sql server içerisinde bize sunulan hazır fonksiyonlar vardır. Aggregate functionlar bunlardan sadece bir kaçıdır. Hazır fonksiyonları kullanıdığımız gibi kendimizde sql server ortamında kullanabileceğimiz fonksiyonlar tanımlıyabiliyoruz. Fonksiyonların bir diğer kullanım kolaylığı ise gövdelerine dışarıdan parametre alabilmeleridir. User defined funcionları iki bölümde inceliyor olacağız.
+1. Scalar-Valued Functions</br>
+2. Table-Valued Functions </br>
+
+### Scalar-Valued Functions
+Scalar valued function geriye tek bir hücre dönen fonksiyonlardır. Function tanımlarken function dönüş tipimizi belirliyoruz ve function gövdesinde dönüş tipinde değer çıkarıyoruz. Ekrana mesaj veren bir fonksiyon yazalım;</br></br>
+
+create function fncMessage()</br>
+returns nvarchar(50)</br>
+as</br>
+begin</br>
+return 'Test message with functions'  </br>
+end</br></br>
+
+Şimdi de fonksiyonumuzu çağıralım;</br></br>
+
+select dbo.fncMessage()</br></br>
+
+Bir başka örnek ; </br></br>
+
+create function fncFullName</br>
+(</br>
+@name nvarchar(100),</br>
+@surname nvarchar(100)</br>
+)</br>
+returns nvarchar(200) as begin</br>
+declare @fullname nvarchar(200)</br>
+set @fullname =  Concat(@name,' ',@surname)</br>
+return @fullname </br>
+end </br></br>
+
+Şimdi de oluşturduğumuz function'ı kullanalım.</br></br>
+select * from Employees</br>
+select</br>
+dbo.fncFullName(e.Name, e.Surname) as FullName,</br>
+TcNo</br>
+from Employees as e</br>
