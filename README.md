@@ -626,4 +626,43 @@ begin </br>
 end </br></br>
 
 Şimdi de oluşturduğumuz procedure'u çalıştıralım. </br></br>
-exec spAddEmployee 'sp_name', 'sp_surname', '45678912346', 1333, 1
+exec spAddEmployee 'sp_name', 'sp_surname', '45678912346', 1333, 1</br></br></br>
+
+Bir başka örnek. Bu aşağıdaki örnekte senaryomuz şu şekilde. Bu stored procedure ile, Departments tablosuna yeni bir kayıt ekleyeceğiz. Fakat ekleyeceğimiz Id ile değer var ise sonuç bize sıfır dönecek. Kayıt yok ise, kayıt işlemi gerçekleştirilecek ve sonuç geriye bir döndürülecek.</br>
+NOT : Procedure tanımlarken dönüş tipi belirlemiyoruz. Sadece değer döndürecekse return ile değer döndürüyoruz. Dönüş tipi belirlemememizin nedeni procedureler geriye her zaman int değer döner. Eğer procedure içeriden farklı bir tipte değer dönecekse output parameter kullanılır. 
+</br></br>
+
+ create procedure spAddDepartment</br>
+ (</br>
+	 @sp_DepartmentId int,</br>
+	 @sp_DepartmentName nvarchar(50)</br>
+ )</br>
+ as</br>
+ begin</br>
+</br>
+	declare @IsHasRecord int </br>
+ </br>
+	select @IsHasRecord = COUNT(*) from Departments</br>
+	where DepartmanID = @sp_DepartmentId </br>
+ </br>
+	declare @result int</br>
+	if @IsHasRecord > 0</br>
+	begin</br>
+		set @result = 0</br>
+	end</br>
+	else</br>
+	begin</br>
+		set identity_insert Departments on</br>
+		insert Departments</br>
+		(DepartmanID, DepartmanName)</br>
+		values</br>
+		(@sp_DepartmentId,@sp_DepartmentName) </br>
+		set identity_insert Departments off</br>
+		set @result = 1</br>
+	end</br>
+</br>
+	return @result</br>
+</br>
+end </br></br>
+Şimdi de çalıştıralım. İlk önce var olan bir Id deneyelim, daha sonra mevcut olmayan bir Id ile kayıt ekleyelim.
+
