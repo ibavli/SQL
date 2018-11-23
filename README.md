@@ -634,34 +634,34 @@ NOT : Procedure tanımlarken dönüş tipi belirlemiyoruz. Sadece değer döndü
 
  create procedure spAddDepartment</br>
  (</br>
-	 @sp_DepartmentId int,</br>
-	 @sp_DepartmentName nvarchar(50)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 @sp_DepartmentId int,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 @sp_DepartmentName nvarchar(50)</br>
  )</br>
  as</br>
  begin</br>
 </br>
-	declare @IsHasRecord int </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	declare @IsHasRecord int </br>
  </br>
-	select @IsHasRecord = COUNT(*) from Departments</br>
-	where DepartmanID = @sp_DepartmentId </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	select @IsHasRecord = COUNT(*) from Departments</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	where DepartmanID = @sp_DepartmentId </br>
  </br>
-	declare @result int</br>
-	if @IsHasRecord > 0</br>
-	begin</br>
-		set @result = 0</br>
-	end</br>
-	else</br>
-	begin</br>
-		set identity_insert Departments on</br>
-		insert Departments</br>
-		(DepartmanID, DepartmanName)</br>
-		values</br>
-		(@sp_DepartmentId,@sp_DepartmentName) </br>
-		set identity_insert Departments off</br>
-		set @result = 1</br>
-	end</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	declare @result int</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	if @IsHasRecord > 0</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	begin</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		set @result = 0</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	else</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	begin</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		set identity_insert Departments on</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	insert Departments</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		(DepartmanID, DepartmanName)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		values</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		(@sp_DepartmentId,@sp_DepartmentName) </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		set identity_insert Departments off</br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		set @result = 1</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end</br>
 </br>
-	return @result</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	return @result</br>
 </br>
 end </br></br>
 Şimdi de çalıştıralım. İlk önce var olan bir Id deneyelim, daha sonra mevcut olmayan bir Id ile kayıt ekleyelim.
