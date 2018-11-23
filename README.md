@@ -605,3 +605,25 @@ where EmployeeId = @employeeId) </br></br>
 Table-Valued function'ı incelediğimizde tıpkı scalar functionlar gibi tanımladık. Returns bölüme table ile dönüş tipinin table olduğunu as den sonra ise return ile select ifademizi tanımladık. </br></br>
 
 SELECT * FROM dbo.fncGetEmployee(3)
+
+## STORED PROCEDURE
+Stored procedure server taraflı saklanan bir sql server objesidir. Procedure’ler functionlar gibi parametre alabilir, tablo döndürebilir, insert, update, delete işlemleri için  kullanılabilir. Procedure'ler sadece tanımlandığı isim ile çağrılarak gövdesindeki komutlar hakkında bilgi vermediği için güvenlik objesi olarakda kullanılır. Ayrıca stored procedure’ler önemli performans objeleridir. Server tarafında saklandığı için ağ trafiğini azaltır. T-sql yazılan her sorgu parse, optimize, compile, execute aşamalarından geçer. Stored procedure ilk tanımlandığında bu aşamalardan geçer ve sonraki çalıştırma işleminde sadece execute edilir. Employees tablosuna insert işlemi yapan bir procedure örneği; </br> </br>
+
+create procedure spAddEmployee </br>
+( </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@sp_Name nvarchar(50), </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@sp_Surname nvarchar(50), </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@sp_TcNo nvarchar(11), </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@sp_Salary int, </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@sp_DepartmentId int </br>
+) </br>
+as </br>
+begin </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	insert Employees </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	(Name,Surname,TcNo,Salary,DepartmentId) </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	values </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	(@sp_Name, @sp_Surname, @sp_TcNo, @sp_Salary, @sp_DepartmentId) </br>
+end </br></br>
+
+Şimdi de oluşturduğumuz procedure'u çalıştıralım. </br></br>
+exec spAddEmployee 'sp_name', 'sp_surname', '45678912346', 1333, 1
