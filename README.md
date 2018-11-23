@@ -664,5 +664,15 @@ NOT : Procedure tanımlarken dönüş tipi belirlemiyoruz. Sadece değer döndü
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	return @result</br>
 </br>
 end </br></br>
-Şimdi de çalıştıralım. İlk önce var olan bir Id deneyelim, daha sonra mevcut olmayan bir Id ile kayıt ekleyelim.
+Şimdi de çalıştıralım. İlk önce var olan bir Id deneyelim, daha sonra mevcut olmayan bir Id ile kayıt ekleyelim. </br></br>
 
+declare @IsHasRecord </br></br>
+int exec @IsHasRecord = spAddDepartment 5,'sp_departmentName'</br></br>
+if @IsHasRecord = 0</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 'Kayıt işlemi başarız'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
+else</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 'Kayıt işlemi başarılı'</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
