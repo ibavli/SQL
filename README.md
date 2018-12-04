@@ -687,7 +687,7 @@ table_name</br>
 {after | instead of} {insert-update-delete}</br>
 as</br>
 begin</br>
-<<query>></br>
+--query </br>
 end</br></br>
 NOT : triggerları enable veya disable ile aktif veya pasif yapabiliriz. Ayrıca kaldırmak istersek, drop ile kaldırabilir.
 ### After Trigger
