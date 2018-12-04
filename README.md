@@ -676,3 +676,25 @@ else</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 'Kayıt işlemi başarılı'</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
+
+
+## TRIGGER
+Triggerlar bir olay için yazılırlar ve otomatik olarak tetiklenirler. Değişiklikleri kontrol etmek, karmaşık iş kurallarını gerçekleştirmek, eposta atmak gibi otomatik işlemler, hata mesajları elde etmek gibi çeşitli ihtiyaçlar için kullanılır. Triggerlar ddl trigger ve dml trigger olmak üzere içi bölüme ayrılır. Dml triggerlar kendi içinde ikiye ayrılır. After trigger ve instead of trigger.</br>
+### After Trigger
+İlk olarak design seçeneğincen Employee tablomuza Email alanı açalım. Allow nulls seçeneğini seçelim. Daha sonra aşağıdaki triggerımızı oluşturalım.</br></br>
+create trigger trgAddMail</br>
+on Employees</br>
+after insert</br>
+as</br>
+begin</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	declare @name nvarchar(max)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	declare @employeeId int</br></br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	select @name = Name, @employeeId = EmployeeId from inserted</br></br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	update Employees</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	set Email = CONCAT(@name, '@ibavli.com')</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  where EmployeeId = @employeeId
+end</br></br>
+Daha sonra aşağıdaki kaydı ekleyelim ve email kısmına otomatik olarak verinin eklendiğini gözlemleyelim.</br></br>
+insert Employees (Name,Surname,TcNo,Salary,DepartmentId) values ('triggerName','triggerSurname', '12345678948', 1200, 1)</br>
