@@ -694,7 +694,19 @@ begin</br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	update Employees</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	set Email = CONCAT(@name, '@ibavli.com')</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  where EmployeeId = @employeeId
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  where EmployeeId = @employeeId</br>
 end</br></br>
 Daha sonra aşağıdaki kaydı ekleyelim ve email kısmına otomatik olarak verinin eklendiğini gözlemleyelim.</br></br>
 insert Employees (Name,Surname,TcNo,Salary,DepartmentId) values ('triggerName','triggerSurname', '12345678948', 1200, 1)</br>
+
+### Instead Of Trigger
+Instead of trigger insert, update, delete komutlarının yerine çalışan trigger türüdür.</br></br>
+
+create trigger trgDelete</br>
+on Employees</br>
+instead of delete</br>
+as</br>
+begin</br>
+print 'yasaklı işlem'</br>
+end</br></br>
+
