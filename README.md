@@ -679,7 +679,17 @@ else</br>
 
 
 ## TRIGGER
-Triggerlar bir olay için yazılırlar ve otomatik olarak tetiklenirler. Değişiklikleri kontrol etmek, karmaşık iş kurallarını gerçekleştirmek, eposta atmak gibi otomatik işlemler, hata mesajları elde etmek gibi çeşitli ihtiyaçlar için kullanılır. Triggerlar ddl trigger ve dml trigger olmak üzere içi bölüme ayrılır. Dml triggerlar kendi içinde ikiye ayrılır. After trigger ve instead of trigger.</br>
+Triggerlar bir olay için yazılırlar ve otomatik olarak tetiklenirler. Değişiklikleri kontrol etmek, karmaşık iş kurallarını gerçekleştirmek, eposta atmak gibi otomatik işlemler, hata mesajları elde etmek gibi çeşitli ihtiyaçlar için kullanılır. Triggerlar ddl trigger ve dml trigger olmak üzere içi bölüme ayrılır. Dml triggerlar kendi içinde ikiye ayrılır. After trigger ve instead of trigger.</br></br>
+GENEL YAPISI</br>
+create trigger trigger_name</br>
+on</br>
+table_name</br>
+{after | instead of} {insert-update-delete}</br>
+as</br>
+begin</br>
+<<query>></br>
+end</br></br>
+NOT : triggerları enable veya disable ile aktif veya pasif yapabiliriz. Ayrıca kaldırmak istersek, drop ile kaldırabilir.
 ### After Trigger
 İlk olarak design seçeneğincen Employee tablomuza Email alanı açalım. Allow nulls seçeneğini seçelim. Daha sonra aşağıdaki triggerımızı oluşturalım.</br></br>
 create trigger trgAddMail</br>
